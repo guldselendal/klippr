@@ -10,7 +10,7 @@ from database import init_db, get_db_session
 from models import Document, Chapter
 from parsers import parse_epub, parse_pdf
 from connections import find_connections
-from summarizer import generate_summary, process_summary_for_chapter
+from summarizer import generate_summary, process_summary_for_chapter, generate_summaries_parallel, process_summaries_for_titles_and_previews
 from utils import (
     clean_filename, normalize_book_name, validate_file_extension,
     db_session, format_chapter_response, handle_parse_error
@@ -195,7 +195,7 @@ async def upload_file(file: UploadFile = File(...)):
         db.close()
         
         return JSONResponse({
-            "message": "File uploaded and parsed successfully. Use /api/chapters/{id}/summarize to generate summaries manually.",
+            "message": "File uploaded and parsed successfully.",
             "document_id": file_id,
             "chapters": chapters
         })
@@ -209,26 +209,9 @@ async def upload_file(file: UploadFile = File(...)):
         # Clean up file on error
         if os.path.exists(file_path):
             os.remove(file_path)
-        # Provide more specific error messages
+        # Provide error message for file parsing/upload errors
         error_detail = str(e)
-        if "Ollama" in error_detail or "ollama" in error_detail.lower():
-            if "timeout" in error_detail.lower():
-                raise HTTPException(
-                    status_code=504,
-                    detail="Summary generation timed out. Please ensure Ollama is running and try again with a smaller file."
-                )
-            elif "connection" in error_detail.lower() or "Cannot connect" in error_detail:
-                raise HTTPException(
-                    status_code=503,
-                    detail="Cannot connect to Ollama. Please make sure Ollama is running on http://localhost:11434"
-                )
-            else:
-                raise HTTPException(
-                    status_code=500,
-                    detail=f"Ollama error during summary generation: {error_detail}"
-                )
-        else:
-            raise HTTPException(status_code=500, detail=f"Error parsing file: {error_detail}")
+        raise HTTPException(status_code=500, detail=f"Error uploading file: {error_detail}")
 
 
 @app.post("/api/upload/batch")

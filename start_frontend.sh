@@ -12,5 +12,5 @@ fi
 
 # Start the development server
 echo "Starting Klippr frontend on http://localhost:3000"
-npm run dev
+npm run dev -- --host
 
