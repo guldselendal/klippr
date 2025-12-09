@@ -1,0 +1,228 @@
+{
+  "baseline": {
+    "env": {
+      "language": "Python 3",
+      "runtime": "CPython",
+      "concurrency_model": "threading.Thread + ThreadPoolExecutor",
+      "os": "darwin (macOS)",
+      "cpu_cores": "unknown (assumed 4-8 typical)",
+      "gil_impact": "high - CPU-bound work doesn't benefit from threads"
+    },
+    "metrics": {
+      "throughput": {
+        "note": "Baseline not measured - requires actual load test"
+      },
+      "latency_ms": {
+        "p50": 0,
+        "p95": 0,
+        "p99": 0,
+        "note": "Requires measurement with actual workload"
+      },
+      "cpu": {
+        "note": "Requires monitoring during load"
+      },
+      "ctx_switches_per_s": 0,
+      "llc_misses": 0,
+      "gc_time_ms": 0,
+      "io": {
+        "note": "HTTP pool size dynamically set, may be suboptimal"
+      }
+    },
+    "workload": {
+      "rate": 0,
+      "duration_s": 0,
+      "note": "Typical: 10-50 chapters, each with 1-47 chunks, processed in parallel"
+    },
+    "current_config": {
+      "ollama_concurrency_limit": 16,
+      "global_concurrency_limit": 20,
+      "chunk_workers_per_chapter": 16,
+      "summary_workers": "adaptive (typically 2-8)",
+      "http_pool_maxsize": 22,
+      "http_pool_connections": 7
+    }
+  },
+  "reasoning": [
+    "Nested ThreadPoolExecutors create concurrency amplification: summary_worker() creates ThreadPoolExecutor(max_workers=16) for chunks, and multiple summary workers run concurrently. With 4 summary workers × 16 chunk workers = 64+ threads, but only 4-8 CPU cores available.",
+    "Ollama concurrency recently increased from 4 to 16 (Step 1.4), but Ollama may not handle 16 concurrent requests efficiently. Local LLM instances (especially on CPU) have limited throughput and may degrade with high concurrency.",
+    "Python GIL prevents true parallelism for CPU-bound work. ThreadPoolExecutor is only effective for I/O-bound operations (HTTP calls). For CPU-bound chunk processing, threads compete for GIL, causing context switching overhead.",
+    "HTTP connection pool size (22) may be too large for actual concurrency (limited by semaphores to 16-20). Excess connections waste memory and may cause connection pool contention.",
+    "No evidence of lock contention in code review, but nested executors + high thread count could cause lock contention in Python's threading internals or HTTP library.",
+    "Context switching overhead: With 64+ threads on 4-8 cores, OS must context switch frequently. Each switch has overhead (~1-10μs), which accumulates with high thread counts.",
+    "Memory allocation: Each thread has stack space (~8MB default on macOS). 64 threads = ~512MB just for stacks, plus heap allocations for each concurrent request.",
+    "Task granularity: Chunk processing tasks are small (HTTP call + JSON parsing). ThreadPoolExecutor overhead may be significant relative to task time, especially with nested executors."
+  ],
+  "suspected_causes": [
+    {
+      "id": "oversubscription",
+      "evidence": [
+        "Code shows nested ThreadPoolExecutors: summary_worker() creates executor with 16 workers, and multiple summary workers run concurrently",
+        "Theoretical max: 4 summary workers × 16 chunk workers = 64 threads, but typical system has 4-8 CPU cores",
+        "Thread count >> CPU cores causes excessive context switching",
+        "Ollama concurrency limit increased from 4 to 16, but local LLM may not benefit from >4-8 concurrent requests"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "id": "not_parallelizable",
+      "evidence": [
+        "Python GIL prevents true parallelism for CPU-bound work",
+        "ThreadPoolExecutor only helps with I/O-bound operations (HTTP calls)",
+        "Chunk processing involves JSON parsing and string manipulation (CPU-bound), which doesn't benefit from threads",
+        "Multiple threads competing for GIL causes serialization and context switching overhead"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "id": "context_switching",
+      "evidence": [
+        "High thread count (64+) relative to CPU cores (4-8) causes frequent context switches",
+        "Each context switch has overhead (~1-10μs), which accumulates",
+        "OS scheduler must manage 64+ threads, causing run-queue buildup",
+        "No explicit thread pinning or affinity, threads migrate across cores"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "id": "io_saturation",
+      "evidence": [
+        "HTTP pool size (22) may be larger than needed given semaphore limits (16-20)",
+        "Ollama local instance may have limited connection handling capacity",
+        "No explicit backpressure beyond queue maxsize (200 for summary, 500 for write)",
+        "Connection pool may be exhausted if many requests queue simultaneously"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": "granularity",
+      "evidence": [
+        "Chunk processing tasks are relatively small (HTTP call + parsing)",
+        "ThreadPoolExecutor has overhead for task submission and result collection",
+        "Nested executors add additional overhead (outer executor + inner executor per chunk)",
+        "Task time may be comparable to scheduler overhead"
+      ],
+      "confidence": 0.65
+    },
+    {
+      "id": "messaging_overhead",
+      "evidence": [
+        "Queue operations (summary_queue, write_queue) involve locking",
+        "Multiple threads accessing shared queues causes contention",
+        "Metrics tracking uses locks (metrics_lock in llm_concurrency.py)",
+        "Deque operations for latency tracking may have contention"
+      ],
+      "confidence": 0.6
+    }
+  ],
+  "experiments": [
+    {
+      "change": "Cap Ollama concurrency to 4 (revert from 16)",
+      "expected_effect": "Reduce thread count and context switching; Ollama may handle 4 concurrent requests more efficiently than 16",
+      "method": "Set LLM_MAX_CONCURRENCY_OLLAMA=4, run load test with 10 chapters, measure p95 latency and throughput",
+      "result": {
+        "delta_throughput_%": 0,
+        "delta_p95_ms": 0,
+        "note": "Requires actual test execution"
+      }
+    },
+    {
+      "change": "Eliminate nested ThreadPoolExecutors - use shared executor pool",
+      "expected_effect": "Reduce thread count from 64+ to ~16-20; eliminate executor creation overhead",
+      "method": "Create module-level ThreadPoolExecutor with max_workers=16, reuse across all chunk processing",
+      "result": {
+        "delta_throughput_%": 0,
+        "delta_p95_ms": 0,
+        "note": "Requires implementation and testing"
+      }
+    },
+    {
+      "change": "Cap chunk workers to CPU count instead of 16",
+      "expected_effect": "Reduce oversubscription; align parallelism with hardware",
+      "method": "Set max_workers = min(cpu_count, len(chunks)) instead of min(16, len(chunks))",
+      "result": {
+        "delta_throughput_%": 0,
+        "delta_p95_ms": 0,
+        "note": "Requires testing"
+      }
+    },
+    {
+      "change": "Use multiprocessing for chunk processing (bypass GIL)",
+      "expected_effect": "True parallelism for CPU-bound work; eliminate GIL contention",
+      "method": "Replace ThreadPoolExecutor with ProcessPoolExecutor for chunk processing",
+      "result": {
+        "delta_throughput_%": 0,
+        "delta_p95_ms": 0,
+        "note": "Requires significant refactoring, may not be worth it for I/O-bound LLM calls"
+      }
+    }
+  ],
+  "fixes": [
+    {
+      "description": "Revert Ollama concurrency limit from 16 to 4-8",
+      "code_snippet": "In llm_concurrency.py: self.ollama_limit = int(os.getenv('LLM_MAX_CONCURRENCY_OLLAMA', 8))  # Reduced from 16",
+      "risk": "low",
+      "impact_estimate_%": 20,
+      "rationale": "Local Ollama instances typically handle 4-8 concurrent requests efficiently. 16 may cause degradation due to resource contention (CPU, memory, model loading)."
+    },
+    {
+      "description": "Eliminate nested ThreadPoolExecutors - create shared executor pool",
+      "code_snippet": "# At module level in summary_pipeline.py:\nCHUNK_EXECUTOR = ThreadPoolExecutor(max_workers=16)\n\n# In summary_worker(), replace:\n# with ThreadPoolExecutor(max_workers=16) as executor:\n# with CHUNK_EXECUTOR:  # Reuse shared executor",
+      "risk": "medium",
+      "impact_estimate_%": 30,
+      "rationale": "Nested executors create 64+ threads. Shared executor limits to 16 threads total, reducing context switching and memory overhead."
+    },
+    {
+      "description": "Cap chunk workers to CPU count or global limit, whichever is smaller",
+      "code_snippet": "In summarizer.py and summary_pipeline.py:\nmax_workers = min(cpu_count, len(chunks), limiter.global_limit)  # Cap to global limit",
+      "risk": "low",
+      "impact_estimate_%": 15,
+      "rationale": "Prevents creating more threads than CPU cores or global concurrency limit, reducing oversubscription."
+    },
+    {
+      "description": "Right-size HTTP connection pool to match actual concurrency",
+      "code_snippet": "In llm_provider.py:\npool_maxsize = limiter.global_limit  # Match semaphore limit, not exceed it",
+      "risk": "low",
+      "impact_estimate_%": 5,
+      "rationale": "Reduces memory usage and connection pool contention. Pool size should match actual concurrency, not exceed it."
+    },
+    {
+      "description": "Add thread pool metrics and monitoring",
+      "code_snippet": "Track: active_thread_count, thread_creation_rate, context_switch_rate (via psutil if available)",
+      "risk": "low",
+      "impact_estimate_%": 0,
+      "rationale": "Observability helps identify bottlenecks. No performance impact, but enables data-driven optimization."
+    }
+  ],
+  "final_results": {
+    "throughput": {
+      "note": "Requires implementation of fixes and load testing"
+    },
+    "latency_ms": {
+      "p50": 0,
+      "p95": 0,
+      "p99": 0,
+      "note": "Expected improvement: 20-30% reduction in p95 latency after fixes"
+    },
+    "cpu": {
+      "note": "Expected: Reduced CPU usage per request due to less context switching"
+    },
+    "notes": "Fixes should be applied incrementally and tested. Start with low-risk fixes (Ollama concurrency cap, HTTP pool sizing), then move to medium-risk (shared executor pool)."
+  },
+  "next_steps": [
+    "Implement quick wins: Revert Ollama concurrency to 8, cap chunk workers to CPU count",
+    "Run load test: 10 chapters, measure baseline p50/p95/p99 latency, throughput, CPU usage",
+    "Implement shared executor pool: Replace nested ThreadPoolExecutors with module-level executor",
+    "Re-test with shared executor: Measure improvement in latency and throughput",
+    "Add monitoring: Track thread count, context switches, queue depths in real-time",
+    "Consider async/await migration: For I/O-bound LLM calls, asyncio may be more efficient than threads",
+    "Profile with py-spy: Identify hot functions and bottlenecks in production-like load"
+  ],
+  "quick_triage": [
+    "IMMEDIATE: Set LLM_MAX_CONCURRENCY_OLLAMA=8 (revert from 16) - low risk, likely 20% improvement",
+    "IMMEDIATE: Cap chunk workers: max_workers = min(cpu_count, len(chunks), 16) - prevents oversubscription",
+    "SHORT TERM: Create shared ThreadPoolExecutor at module level, reuse for all chunk processing - eliminates nested executors",
+    "MONITORING: Add thread count and context switch metrics to pipeline_metrics.py",
+    "TEST: Run load test with 10 chapters, measure before/after applying fixes"
+  ]
+}
+

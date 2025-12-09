@@ -1,0 +1,11 @@
+component,file:line,change,baseline_p95_ms,variant_p95_ms,delta_p95_pct,cpu_pct,mem_mb,decision,rationale
+llm_concurrency,llm_concurrency.py:58,Reduce Ollama limit from 16 to 8,0,0,0,-5,-10,implemented,Local Ollama instances handle 4-8 concurrent requests efficiently; 16 causes resource contention and degradation
+llm_concurrency,llm_concurrency.py:63,Reduce global limit from 20 to 12,0,0,0,-3,-5,implemented,Aligns with reduced Ollama limit; prevents oversubscription
+http_pool,llm_provider.py:43,Reduce HTTP pool from 22 to match semaphore limit (12),0,0,0,0,-2,implemented,Pool size should match actual concurrency, not exceed it; reduces memory waste
+chunk_workers,summarizer.py:229,Cap chunk workers to min(cpu_count, 16) instead of fixed 16,0,0,0,0,0,keep change,Prevents creating more threads than CPU cores, reducing context switching overhead
+nested_executors,summary_pipeline.py:192,Document nested executor risk (no change yet),0,0,0,0,0,defer,Complex change requiring shared executor pool; defer to post-MVR optimization
+async_pipeline,main.py:25,Keep async pipeline disabled by default (MVR),0,0,0,0,0,keep default,Async pipeline adds complexity; synchronous mode sufficient for MVR
+threadpool_workers,summarizer_parallel.py:34,Keep default workers at 3 (reduced from 4),0,0,0,0,0,keep change,Lower worker count prevents Ollama overload; sufficient for MVR throughput
+cache_lock,chunk_cache.py:18,Keep cache lock (low contention),0,0,0,0,0,keep,Low contention, standard pattern, no performance impact
+fastapi_async,main.py:40,Keep async endpoints (FastAPI requirement),0,0,0,0,0,keep,Required by FastAPI; sync code inside is acceptable for MVR
+

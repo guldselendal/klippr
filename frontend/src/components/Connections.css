@@ -1,0 +1,116 @@
+.connections {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  flex: 1;
+}
+
+.connections-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.connections-header h2 {
+  font-size: 2rem;
+  color: var(--text-primary);
+}
+
+.connections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.connection-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: all 0.2s;
+}
+
+.connection-card:hover {
+  box-shadow: 0 4px 12px var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.connection-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.similarity-badge {
+  background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.connection-chapters {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.connection-chapter {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--background);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.connection-chapter:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+  transform: translateX(4px);
+}
+
+.connection-chapter h4 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.chapter-doc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.connection-arrow {
+  font-size: 2rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.connection-reason {
+  padding: 1rem;
+  background-color: var(--background);
+  border-radius: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.connection-reason strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .connection-chapters {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .connection-arrow {
+    transform: rotate(90deg);
+  }
+}
+

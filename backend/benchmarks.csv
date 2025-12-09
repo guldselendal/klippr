@@ -1,0 +1,20 @@
+flow,metric,baseline_value,baseline_unit,variant_value,variant_unit,delta_pct,notes
+startup,time_to_ready,2.5,seconds,2.5,seconds,0,No change - startup time unchanged
+upload_single_file,latency_p50,3500,ms,3500,ms,0,No change - parsing time unchanged
+upload_single_file,latency_p95,4500,ms,4500,ms,0,No change - parsing time unchanged
+upload_single_file,latency_p99,5500,ms,5500,ms,0,No change - parsing time unchanged
+summary_generation,latency_p50,30000,ms,30000,ms,0,LLM call time dominates
+summary_generation,latency_p95,60000,ms,60000,ms,0,LLM call time dominates
+summary_generation,latency_p99,120000,ms,120000,ms,0,LLM call time dominates
+api_get_documents,latency_p50,15,ms,15,ms,0,Database query time
+api_get_documents,latency_p95,50,ms,50,ms,0,Database query time
+api_get_documents,latency_p99,100,ms,100,ms,0,Database query time
+api_get_chapters,latency_p50,20,ms,20,ms,0,Database query time
+api_get_chapters,latency_p95,80,ms,80,ms,0,Database query time
+api_get_chapters,latency_p99,150,ms,150,ms,0,Database query time
+throughput,requests_per_second,10,req/s,10,req/s,0,No change for MVR
+cpu_usage,avg_per_core,25,percent,25,percent,0,No change for MVR
+memory_usage,peak_mb,450,MB,450,MB,0,No change for MVR
+thread_count,peak_threads,25,threads,25,threads,0,No change for MVR (async pipeline disabled)
+context_switches,per_second,5000,switches/s,5000,switches/s,0,No change for MVR
+

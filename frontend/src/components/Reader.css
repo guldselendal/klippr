@@ -1,0 +1,156 @@
+.reader {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.reader-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.reader-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chapter-counter {
+  font-weight: 500;
+  color: var(--text-secondary);
+  min-width: 80px;
+  text-align: center;
+}
+
+.chapters-sidebar {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.chapters-sidebar h3 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.chapters-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chapter-item {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.chapter-item:hover {
+  background-color: var(--background);
+  border-color: var(--border);
+}
+
+.chapter-item.active {
+  background-color: rgba(99, 102, 241, 0.1);
+  border-color: var(--primary-color);
+}
+
+.chapter-item-title {
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.chapter-item-summary {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.chapter-item-doc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.reader-content {
+  background-color: var(--surface);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  line-height: 1.8;
+}
+
+.chapter-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.chapter-header h2 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.chapter-source {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.chapter-content {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.chapter-content p {
+  margin-bottom: 1.25rem;
+  text-align: justify;
+}
+
+.chapter-content p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .reader {
+    padding: 1rem;
+  }
+
+  .reader-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .reader-nav {
+    justify-content: center;
+  }
+
+  .chapter-content {
+    font-size: 1rem;
+  }
+}
+

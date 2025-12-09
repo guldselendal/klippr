@@ -1,0 +1,346 @@
+/Users/gselendal/Desktop/projects/ReaderZ/backend/main.py:33: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+INFO:     Started server process [38326]
+INFO:     Waiting for application startup.
+/Users/gselendal/Desktop/projects/ReaderZ/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Device set to use cpu
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+Upload directory: /Users/gselendal/Desktop/projects/ReaderZ/backend/uploads
+
+==================================================
+Starting ReaderZ API...
+==================================================
+
+[Startup] Initializing summarization model...
+[Transformers] ✓ transformers and torch are already installed
+
+============================================================
+[Transformers] 🤖 Loading summarization model...
+[Transformers] 📥 Downloading model (~1.6GB on first run)...
+[Transformers] This may take a few minutes...
+============================================================
+
+
+============================================================
+[Transformers] ✅ Model loaded successfully and ready to use!
+============================================================
+
+[Startup] ReaderZ API is ready!
+
+INFO:     127.0.0.1:65494 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65501 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65499 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65521 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65521 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65521 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65521 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65534 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65534 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49153 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49165 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49165 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49165 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49165 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49168 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49168 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49173 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49176 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49188 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49204 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49230 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49230 - "GET /api/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49235 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49236 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49326 - "GET /api/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49327 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49328 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49448 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49459 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49460 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49461 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49470 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49471 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49472 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49477 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49478 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49479 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49486 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49487 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49488 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49490 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49491 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49492 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49496 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49497 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49498 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49502 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49503 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49504 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49510 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49511 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49512 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49521 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49522 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49523 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49531 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49532 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49533 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49539 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49540 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49541 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49543 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49544 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49545 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49548 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49549 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49550 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49553 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49554 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49555 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49561 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49562 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49563 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49573 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49574 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49575 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49577 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49578 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49579 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49581 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49582 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49583 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49586 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49587 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49588 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49594 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49595 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49596 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49600 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49601 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49602 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49620 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49621 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49622 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49627 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49628 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49629 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49631 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49632 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49633 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49641 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49642 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49643 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49651 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49652 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49653 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49657 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49658 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49659 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49667 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49668 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49669 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49674 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49675 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49676 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49684 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49685 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49686 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49689 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49690 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49691 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49706 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49707 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49708 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49716 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49717 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49718 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49728 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49729 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49730 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49740 - "GET /api/documents/6ef4a7a3-e987-4520-b1ee-56bf166fba3f/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49741 - "GET /api/documents/e73584c9-eb82-4bf5-ab6e-2d26d4594a31/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49742 - "GET /api/documents/ea04fcb7-17d6-4c75-b55c-aa41d757258a/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49740 - "OPTIONS /api/documents/delete-batch HTTP/1.1" 200 OK
+[DEBUG] Received delete-batch request: {
+  "document_ids": [
+    "6ef4a7a3-e987-4520-b1ee-56bf166fba3f",
+    "e73584c9-eb82-4bf5-ab6e-2d26d4594a31",
+    "ea04fcb7-17d6-4c75-b55c-aa41d757258a"
+  ]
+}
+[DEBUG] Request type: <class 'dict'>
+[DEBUG] Request keys: dict_keys(['document_ids'])
+[DEBUG] Extracted document_ids: ['6ef4a7a3-e987-4520-b1ee-56bf166fba3f', 'e73584c9-eb82-4bf5-ab6e-2d26d4594a31', 'ea04fcb7-17d6-4c75-b55c-aa41d757258a'], count: 3
+[DEBUG] Total documents in database: 3
+[DEBUG] Processing document 1/3: 6ef4a7a3-e987-4520-b1ee-56bf166fba3f
+[DEBUG] Found document: Mod terapisi- diğer yollardan gitmek - şema terapi'yi -- Bilinmeyen yazar -- Bilişsel ve Davranışçı Terapiler Serisi, Birinci basım, -- Psikonet -- 9786058547117 -- d07853e7aabafb8b95af561d7a2f07b9 -- Anna’s Archive, file_path: uploads/6ef4a7a3-e987-4520-b1ee-56bf166fba3f.epub
+[DEBUG] Deleted file: uploads/6ef4a7a3-e987-4520-b1ee-56bf166fba3f.epub
+[DEBUG] Marked document 6ef4a7a3-e987-4520-b1ee-56bf166fba3f for deletion
+[DEBUG] Processing document 2/3: e73584c9-eb82-4bf5-ab6e-2d26d4594a31
+[DEBUG] Found document: Mind Your Mindset The Science That Shows Success Starts with Your Thinking, file_path: uploads/e73584c9-eb82-4bf5-ab6e-2d26d4594a31.epub
+[DEBUG] Deleted file: uploads/e73584c9-eb82-4bf5-ab6e-2d26d4594a31.epub
+[DEBUG] Marked document e73584c9-eb82-4bf5-ab6e-2d26d4594a31 for deletion
+[DEBUG] Processing document 3/3: ea04fcb7-17d6-4c75-b55c-aa41d757258a
+[DEBUG] Found document: Measure What Matters How Google, Bono, and the Gates Foundation Rock the World with OKRs, file_path: uploads/ea04fcb7-17d6-4c75-b55c-aa41d757258a.epub
+[DEBUG] Deleted file: uploads/ea04fcb7-17d6-4c75-b55c-aa41d757258a.epub
+[DEBUG] Marked document ea04fcb7-17d6-4c75-b55c-aa41d757258a for deletion
+[DEBUG] Attempting to commit 3 deletions...
+[DEBUG] Successfully committed 3 deletions
+[DEBUG] Returning result: {
+  "message": "Deleted 3 document(s)",
+  "deleted_count": 3,
+  "deleted_titles": [
+    "Mod terapisi- di\u011fer yollardan gitmek - \u015fema terapi'yi -- Bilinmeyen yazar -- Bili\u015fsel ve Davran\u0131\u015f\u00e7\u0131 Terapiler Serisi, Birinci bas\u0131m, -- Psikonet -- 9786058547117 -- d07853e7aabafb8b95af561d7a2f07b9 -- Anna\u2019s Archive",
+    "Mind Your Mindset The Science That Shows Success Starts with Your Thinking",
+    "Measure What Matters How Google, Bono, and the Gates Foundation Rock the World with OKRs"
+  ],
+  "errors": null
+}
+INFO:     127.0.0.1:49741 - "POST /api/documents/delete-batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49742 - "GET /api/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49874 - "OPTIONS /api/upload HTTP/1.1" 200 OK
+/Users/gselendal/Desktop/projects/ReaderZ/backend/venv/lib/python3.9/site-packages/ebooklib/epub.py:1395: UserWarning: In the future version we will turn default option ignore_ncx to True.
+  warnings.warn('In the future version we will turn default option ignore_ncx to True.')
+/Users/gselendal/Desktop/projects/ReaderZ/backend/venv/lib/python3.9/site-packages/ebooklib/epub.py:1423: FutureWarning: This search incorrectly ignores the root element, and will be fixed in a future version.  If you rely on the current behaviour, change it to './/xmlns:rootfile[@media-type]'
+  for root_file in tree.findall('//xmlns:rootfile[@media-type]', namespaces={'xmlns': NAMESPACES['CONTAINERNS']}):
+INFO:     127.0.0.1:49874 - "POST /api/upload HTTP/1.1" 200 OK
+Generating summaries for 5 chapters in document 52b5d434-3195-4e73-b36f-0a0a17e1b65c...
+INFO:     127.0.0.1:49874 - "POST /api/upload HTTP/1.1" 200 OK
+Your max_length is set to 150, but your input_length is only 110. Since this is a summarization task, where outputs shorter than the input are typically wanted, you might consider decreasing max_length manually, e.g. summarizer('...', max_length=55)
+Generating summaries for 23 chapters in document beee15d4-21c8-4797-8f5a-46ec98c46899...
+INFO:     127.0.0.1:49874 - "GET /api/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49876 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49878 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49879 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49878 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49879 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49883 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49884 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+Error with transformers summarization, falling back: index out of range in self
+INFO:     127.0.0.1:49883 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+Successfully generated summaries for 5 chapters in document 52b5d434-3195-4e73-b36f-0a0a17e1b65c
+INFO:     127.0.0.1:49886 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49887 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49886 - "POST /api/upload HTTP/1.1" 200 OK
+Generating summaries for 25 chapters in document 6e7173d9-2f0d-4c5d-88b9-ae53856e84be...
+INFO:     127.0.0.1:49887 - "GET /api/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49886 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49891 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49892 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49893 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49899 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49900 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49901 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49904 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49905 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49906 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49915 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49916 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49917 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+Successfully generated summaries for 23 chapters in document beee15d4-21c8-4797-8f5a-46ec98c46899
+INFO:     127.0.0.1:49925 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49926 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49927 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49946 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49947 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49948 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49952 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49953 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49954 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49957 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49958 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49959 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+Successfully generated summaries for 25 chapters in document 6e7173d9-2f0d-4c5d-88b9-ae53856e84be
+INFO:     127.0.0.1:49963 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49964 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49965 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50072 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50072 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50072 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50072 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50075 - "OPTIONS /api/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50075 - "POST /api/upload HTTP/1.1" 200 OK
+Generating summaries for 14 chapters in document 15621cf8-1717-4520-93bd-bc444d3011cf...
+INFO:     127.0.0.1:50075 - "GET /api/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50075 - "GET /api/documents/15621cf8-1717-4520-93bd-bc444d3011cf/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50079 - "GET /api/documents/15621cf8-1717-4520-93bd-bc444d3011cf/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50080 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50081 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50082 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50084 - "GET /api/documents/15621cf8-1717-4520-93bd-bc444d3011cf/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50085 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50086 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50087 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50093 - "GET /api/documents/15621cf8-1717-4520-93bd-bc444d3011cf/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50094 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50095 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50096 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+Successfully generated summaries for 14 chapters in document 15621cf8-1717-4520-93bd-bc444d3011cf
+INFO:     127.0.0.1:50101 - "GET /api/documents/15621cf8-1717-4520-93bd-bc444d3011cf/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50102 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50103 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50104 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50329 - "GET /api/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50330 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50331 - "GET /api/transformers-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50506 - "GET /api/documents/15621cf8-1717-4520-93bd-bc444d3011cf/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50515 - "OPTIONS /api/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50515 - "POST /api/upload HTTP/1.1" 200 OK
+Generating summaries for 13 chapters in document b0e71af1-1de3-4ce0-ad69-af6ba2b1bc68...
+INFO:     127.0.0.1:50515 - "GET /api/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50515 - "GET /api/documents/b0e71af1-1de3-4ce0-ad69-af6ba2b1bc68/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50523 - "GET /api/documents/15621cf8-1717-4520-93bd-bc444d3011cf/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50524 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50525 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50526 - "GET /api/documents/b0e71af1-1de3-4ce0-ad69-af6ba2b1bc68/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50527 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50530 - "GET /api/documents/15621cf8-1717-4520-93bd-bc444d3011cf/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50531 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50532 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50533 - "GET /api/documents/b0e71af1-1de3-4ce0-ad69-af6ba2b1bc68/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50534 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50537 - "GET /api/documents/15621cf8-1717-4520-93bd-bc444d3011cf/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50538 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50539 - "GET /api/documents/b0e71af1-1de3-4ce0-ad69-af6ba2b1bc68/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50540 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50541 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+Successfully generated summaries for 13 chapters in document b0e71af1-1de3-4ce0-ad69-af6ba2b1bc68
+INFO:     127.0.0.1:50543 - "GET /api/documents/15621cf8-1717-4520-93bd-bc444d3011cf/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50544 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50545 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50546 - "GET /api/documents/b0e71af1-1de3-4ce0-ad69-af6ba2b1bc68/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50547 - "GET /api/documents/beee15d4-21c8-4797-8f5a-46ec98c46899/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50662 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50666 - "POST /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/generate-summaries-batched HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50666 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/summary-progress HTTP/1.1" 200 OK
+All chapters already have summaries for document 6e7173d9-2f0d-4c5d-88b9-ae53856e84be
+INFO:     127.0.0.1:50666 - "POST /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/generate-summaries-batched HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50666 - "GET /api/documents/6e7173d9-2f0d-4c5d-88b9-ae53856e84be/summary-progress HTTP/1.1" 200 OK
+All chapters already have summaries for document 6e7173d9-2f0d-4c5d-88b9-ae53856e84be
+INFO:     127.0.0.1:50698 - "GET /api/documents/52b5d434-3195-4e73-b36f-0a0a17e1b65c/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50804 - "GET /api/documents/15621cf8-1717-4520-93bd-bc444d3011cf/chapters?include_content=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50804 - "POST /api/chapters/e12ce65c-ab79-4f52-b672-8d5f625c99f0/summarize HTTP/1.1" 404 Not Found
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [38326]
